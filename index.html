@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For My Beloved Best Friend 💗</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to bottom right, #ffe6f0, #fff5fa);
+    color: #5c4a4a;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+  }
+
+  /* cute background stickers (hearts, stars, butterflies, ribbons) */
+  .sticker {
+    position: absolute;
+    opacity: 0.5;
+    z-index: 0;
+    animation: floatSticker linear infinite;
+  }
+
+  @keyframes floatSticker {
+    0% { transform: translate(0, 0) rotate(0deg); opacity: 0.6; }
+    50% { transform: translate(20px, -40px) rotate(20deg); opacity: 0.8; }
+    100% { transform: translate(-20px, -80px) rotate(-20deg); opacity: 0.6; }
+  }
+
+  .container {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 80px 20px;
+    animation: fadeIn 2s ease forwards;
+  }
+
+  h1 {
+    font-size: 2.3em;
+    color: #ff91b3;
+    text-shadow: 1px 1px 2px #fff;
+    font-family: 'Playfair Display', cursive;
+    animation: floatIn 2s ease forwards;
+  }
+
+  .password-box {
+    margin-top: 40px;
+    animation: fadeUp 2s ease;
+  }
+
+  input {
+    padding: 10px;
+    border: 2px solid #ffc1d6;
+    border-radius: 15px;
+    width: 250px;
+    font-size: 1em;
+    text-align: center;
+    background: #fff9fb;
+    color: #705a5a;
+  }
+
+  button {
+    margin-top: 15px;
+    background-color: #ffc1d6;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 4px 8px rgba(255,192,203,0.4);
+  }
+
+  button:hover {
+    background-color: #ff9ebf;
+    transform: scale(1.05);
+  }
+
+  .message-section {
+    display: none;
+    animation: fadeIn 2.5s ease forwards;
+  }
+
+  .photo {
+    margin: 30px auto;
+    border: 6px solid #ffd6e8;
+    border-radius: 25px;
+    box-shadow: 0 4px 10px rgba(255,182,193,0.6);
+    width: 280px;
+    height: auto;
+    animation: softZoom 3s ease-in-out infinite alternate;
+  }
+
+  p {
+    font-size: 1em;
+    line-height: 1.8;
+    max-width: 600px;
+    margin: auto;
+    text-align: center;
+    color: #705a5a;
+    animation: fadeUp 2.5s ease;
+  }
+
+  .footer {
+    margin-top: 40px;
+    font-weight: bold;
+    color: #ff94b5;
+    animation: floatIn 3s ease;
+  }
+
+  @keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+  }
+
+  @keyframes fadeUp {
+    from {opacity: 0; transform: translateY(30px);}
+    to {opacity: 1; transform: translateY(0);}
+  }
+
+  @keyframes floatIn {
+    from {opacity: 0; transform: translateY(-20px);}
+    to {opacity: 1; transform: translateY(0);}
+  }
+
+  @keyframes softZoom {
+    from {transform: scale(1);}
+    to {transform: scale(1.05);}
+  }
+</style>
+</head>
+<body>
+
+<!-- animated background stickers -->
+<div id="stickerContainer"></div>
+
+<div class="container" id="passwordSection">
+  <h1>For My Beloved Best Friend 💗</h1>
+  <div class="password-box">
+    <p>Who’s your only bestest friend in the world?</p>
+    <input type="password" id="passwordInput" placeholder="Type your answer here...">
+    <br>
+    <button onclick="checkPassword()">Unlock</button>
+  </div>
+</div>
+
+<div class="container message-section" id="messageSection">
+  <h1>For My Beloved Best Friend 💖</h1>
+  <img src="IMG_20251008_140912.jpg" alt="Fio" class="photo">
+
+  <p>
+    Hi Fio 🌷<br><br>
+    I just want to say thank you — not just for being my best friend, but for being one of the most genuine souls I’ve ever met.  
+    From the very start, when I was still learning how to stand on my own and trying to figure out who I wanted to be,  
+    you were already there — patient, understanding, and supportive in ways I’ll never forget.  
+    You’ve witnessed me struggle, fail, and cry through the smallest and biggest moments.  
+    You were there when things felt impossible, and you never left even when I doubted myself.  
+    You believed in me even when I couldn’t, and that’s something I’ll always hold close to my heart.  
+    <br><br>
+    I may not say it often, but I’m deeply thankful for you — for staying, for listening,  
+    for seeing my growth and celebrating every small success I’ve had.  
+    You’ve been there from the beginning, Fio, and I hope you’ll be there until the end of every chapter.  
+    Our friendship means more to me than words can ever describe.  
+    <br><br>
+    Here’s to more laughs, stories, and memories together.  
+    You’ll always be my most trusted friend, my confidant, my one and only best friend in the world. 💗
+  </p>
+
+  <p class="footer">From Fatima 💋✨</p>
+</div>
+
+<audio autoplay loop>
+  <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_0df2c3c538.mp3?filename=soft-piano-love-theme-10753.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+  // password unlock
+  function checkPassword() {
+    const input = document.getElementById("passwordInput").value.toLowerCase().trim();
+    if (input === "fatima") {
+      document.getElementById("passwordSection").style.display = "none";
+      document.getElementById("messageSection").style.display = "block";
+      createStickers();
+    } else {
+      alert("Oops! Try again, Fio 💕");
+    }
+  }
+
+  // animated background stickers (cute icons floating around)
+  const stickerIcons = ["💖", "🦋", "🌸", "🎀", "⭐"];
+  
+  function createStickers() {
+    const container = document.getElementById("stickerContainer");
+    for (let i = 0; i < 10; i++) {
+      let sticker = document.createElement("div");
+      sticker.classList.add("sticker");
+      sticker.textContent = stickerIcons[Math.floor(Math.random() * stickerIcons.length)];
+      sticker.style.left = Math.random() * 100 + "vw";
+      sticker.style.top = Math.random() * 100 + "vh";
+      sticker.style.fontSize = (20 + Math.random() * 25) + "px";
+      sticker.style.animationDuration = (10 + Math.random() * 10) + "s";
+      container.appendChild(sticker);
+    }
+  }
+</script>
+
+</body>
+</html>
